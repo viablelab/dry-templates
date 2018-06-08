@@ -1,0 +1,7 @@
+{
+  "name": "dry-templates",
+  "version": "0.0.1",
+  "description": "Scaffold new projects from local templates",
+  "author": "Johan West <johan.west@viablelab.com>",
+  "license": "MIT"
+}
