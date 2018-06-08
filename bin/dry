@@ -1,0 +1,50 @@
+#!/usr/bin/env node
+
+'use strict';
+
+const sade = require('sade');
+const commands = require('../lib/commands');
+const pkg = require('../package.json');
+
+const prog = sade('dry');
+
+prog.describe(pkg.description).version(pkg.version);
+
+prog
+  .command('init')
+  .describe('Initialize dry')
+  .example('init')
+  .action(commands.init);
+
+prog
+  .command('scaffold [template]')
+  .describe('Scaffold new project from template')
+  .option('--exact', 'Install exact dependency versions')
+  .option('-p, --package-manager', 'Which package manager to use')
+  .example('scaffold')
+  .example('scaffold parcel-react --exact')
+  .example('scaffold -p yarn')
+  .action(commands.scaffold);
+
+prog
+  .command('template')
+  .describe('Create new project template')
+  .option('--open', 'Open template config file in editor')
+  .example('template')
+  .action(commands.template);
+
+prog
+  .command('ls [template]')
+  .describe('List local templates')
+  .option('-n, --number', 'Number to list', 20)
+  .example('list')
+  .example('list react -n 10')
+  .action(commands.ls);
+
+prog
+  .command('rm <template>')
+  .describe('Remove template')
+  .example('rm my-template')
+  .action(commands.rm);
+
+prog.parse(process.argv);

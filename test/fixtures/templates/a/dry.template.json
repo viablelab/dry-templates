@@ -1,0 +1,14 @@
+{
+  "name": "alpha-react",
+  "peerDependencies": {
+    "react": "^16.0.0",
+    "react-dom": "^16.0.0"
+  },
+  "devDependencies": {
+    "react": "^16.0.0",
+    "react-dom": "^16.0.0"
+  },
+  "dependencies": {
+    "ramda": "latest"
+  }
+}
